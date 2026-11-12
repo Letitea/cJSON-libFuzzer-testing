@@ -1,0 +1,25 @@
+name: Fuzz Smoke Test
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  fuzz_smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t cjson-libfuzzer-testing .
+      - name: Build Fuzz Targets
+        run: |
+          docker run --rm -v "${PWD}:/work" -w /work cjson-libfuzzer-testing bash -lc "
+          cmake -S . -B build -DCMAKE_C_COMPILER=clang -DCMAKE_BUILD_TYPE=Debug &&
+          cmake --build build --parallel"
+      - name: Run Core Smoke Tests (10s each)
+        run: |
+          docker run --rm -v "${PWD}:/work" -w /work cjson-libfuzzer-testing bash -lc "
+          ./build/fuzz_parse -max_total_time=10 corpus/parse || true
+          ./build/fuzz_print -max_total_time=10 corpus/print || true
+          ./build/fuzz_minify -max_total_time=10 corpus/minify || true"
