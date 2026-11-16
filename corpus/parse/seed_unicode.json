@@ -1,0 +1,11 @@
+{
+  "unescaped_ctrl": "line1
+line2	tab",
+  "emoji": "🚀🔥👨‍👩‍👧‍👦𐍈🏳️‍🌈",
+  "bidi_and_special": "abc\u202Edef\uFFFD\u0000",
+  "lone_high_surrogate": "\uD800\uDBFF",
+  "lone_low_surrogate": "\uDC00\uDFFF",
+  "reversed_surrogate": "\uDC00\uD800",
+  "broken_surrogate": "\uD83D\u0041\uD83D",
+  "truncated_escape": "\u123"
+}
