@@ -23,4 +23,8 @@ jobs:
           docker run --rm -v "${PWD}:/work" -w /work cjson-libfuzzer-testing bash -lc "
           ./build/fuzz_parse -max_total_time=10 corpus/parse
           ./build/fuzz_print -max_total_time=10 corpus/print
-          ./build/fuzz_minify -max_total_time=10 corpus/minify"
+          ./build/fuzz_minify -max_total_time=10 corpus/minify
+          ./build/fuzz_boundary -max_total_time=10 corpus/boundary
+          ./build/fuzz_reference -max_total_time=10 corpus/reference
+          ./build/fuzz_memory_structure -max_total_time=10 corpus/memory_structure
+          ./build/fuzz_hooks -max_total_time=10 corpus/hooks"
