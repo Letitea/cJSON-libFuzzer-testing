@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 3.20)
+project(cJSON_libFuzzer_testing C)
+set(CMAKE_C_STANDARD 99)
+set(CJSON_DIR "${CMAKE_SOURCE_DIR}/third_party/cJSON")
+
+function(add_fuzz_target target source)
+    add_executable(${target} ${source} "${CJSON_DIR}/cJSON.c")
+    target_include_directories(${target} PRIVATE "${CJSON_DIR}")
+    target_compile_options(${target} PRIVATE -O1 -g -fno-omit-frame-pointer -fsanitize=fuzzer,address)
+    target_link_options(${target} PRIVATE -fsanitize=fuzzer,address)
+endfunction()
+
+add_fuzz_target(fuzz_parse fuzz/fuzz_parse.c)
+add_fuzz_target(fuzz_print fuzz/fuzz_print.c)
+add_fuzz_target(fuzz_minify fuzz/fuzz_minify.c)
