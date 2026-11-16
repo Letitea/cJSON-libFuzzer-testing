@@ -1,0 +1,6 @@
+{
+  "bmp_cjk": "\u4e2d\u6587\u6e2c\u8a66",
+  "surrogate_emoji": "\uD83D\uDE00\uD83C\uDF89",
+  "null_escape": "before\u0000after",
+  "all_escapes": "\" \\ \/ \b \f \n \r \t"
+}

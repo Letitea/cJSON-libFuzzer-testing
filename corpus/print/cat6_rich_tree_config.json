@@ -1,0 +1,14 @@
+{
+  "env": "production",
+  "workers": 8,
+  "thresholds": [0.1, 0.5, 0.95, 1.0],
+  "routes": [
+    {"path": "/api/v1/parse", "methods": ["POST"], "timeout_ms": 1500, "cache": null},
+    {"path": "/api/v1/print", "methods": ["GET", "POST"], "timeout_ms": 2000, "cache": {"ttl": 60}}
+  ],
+  "features": {
+    "enable_hooks": true,
+    "enable_refs": true,
+    "limits": {"max_depth": 1000, "max_bytes": 1048576}
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "nodes": [
+    {"key": "root", "children": [{"key": "c1", "val": 1}, {"key": "c2", "val": 2}, {"key": "c3", "val": 3}]},
+    {"key": "leaf", "children": []}
+  ],
+  "matrix": [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+  "shared_ref_candidate": {"label": "shared", "items": ["a", "b", "c", "d"]}
+}

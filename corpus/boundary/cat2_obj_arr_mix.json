@@ -1,0 +1,10 @@
+{
+  "groups": [
+    {"id": 1, "items": [{"k": "v1"}, {"k": "v2"}]},
+    {"id": 2, "items": []}
+  ],
+  "matrix": [
+    [{"x": 1}, {"y": 2}],
+    [{"z": [true, false, null]}]
+  ]
+}
