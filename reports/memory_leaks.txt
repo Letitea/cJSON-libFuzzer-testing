@@ -1,0 +1,72 @@
+root@b0924e2af48a:/work# ./build/fuzz_memory_structure -max_total_time=3600 -print_final_stats=1 corpus/memory_structure
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3572469087
+INFO: Loaded 1 modules   (1265 inline 8-bit counters): 1265 [0x5a53223c01e8, 0x5a53223c06d9), 
+INFO: Loaded 1 PC tables (1265 PCs): 1265 [0x5a53223c06e0,0x5a53223c55f0), 
+INFO:       59 files found in corpus/memory_structure
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 59 min: 56b max: 643b total: 18824b rss: 31Mb
+#60     INITED cov: 155 ft: 541 corp: 49/14196b exec/s: 0 rss: 34Mb
+#206    REDUCE cov: 155 ft: 541 corp: 49/14195b lim: 643 exec/s: 0 rss: 35Mb L: 123/643 MS: 1 EraseBytes-
+#213    REDUCE cov: 155 ft: 541 corp: 49/14179b lim: 643 exec/s: 0 rss: 35Mb L: 180/643 MS: 2 ChangeBinInt-EraseBytes-
+#214    NEW    cov: 158 ft: 544 corp: 50/14429b lim: 643 exec/s: 0 rss: 35Mb L: 250/643 MS: 1 InsertByte-
+#222    REDUCE cov: 158 ft: 544 corp: 50/14373b lim: 643 exec/s: 0 rss: 35Mb L: 73/643 MS: 3 CopyPart-InsertRepeatedBytes-CrossOver-
+#226    NEW    cov: 159 ft: 545 corp: 51/14517b lim: 643 exec/s: 0 rss: 35Mb L: 144/643 MS: 4 ChangeByte-ChangeASCIIInt-ChangeASCIIInt-ChangeBinInt-
+#240    REDUCE cov: 159 ft: 545 corp: 51/14506b lim: 643 exec/s: 0 rss: 35Mb L: 222/643 MS: 4 InsertByte-ChangeASCIIInt-ChangeBit-EraseBytes-
+#263    REDUCE cov: 159 ft: 545 corp: 51/14478b lim: 643 exec/s: 0 rss: 35Mb L: 174/643 MS: 3 ShuffleBytes-ChangeASCIIInt-EraseBytes-
+#289    NEW    cov: 159 ft: 546 corp: 52/14807b lim: 643 exec/s: 0 rss: 36Mb L: 329/643 MS: 1 ShuffleBytes-
+#292    REDUCE cov: 159 ft: 546 corp: 52/14787b lim: 643 exec/s: 0 rss: 36Mb L: 129/643 MS: 3 ChangeBit-ChangeByte-EraseBytes-
+#326    REDUCE cov: 159 ft: 546 corp: 52/14776b lim: 643 exec/s: 0 rss: 36Mb L: 169/643 MS: 4 CopyPart-ChangeByte-ShuffleBytes-EraseBytes-
+#332    NEW    cov: 159 ft: 548 corp: 53/15191b lim: 643 exec/s: 0 rss: 36Mb L: 415/643 MS: 1 ChangeASCIIInt-
+#343    NEW    cov: 159 ft: 549 corp: 54/15606b lim: 643 exec/s: 0 rss: 36Mb L: 415/643 MS: 1 ChangeASCIIInt-
+#351    REDUCE cov: 159 ft: 549 corp: 54/15521b lim: 643 exec/s: 0 rss: 36Mb L: 173/643 MS: 3 ChangeBit-ChangeByte-EraseBytes-
+#377    REDUCE cov: 159 ft: 549 corp: 54/15397b lim: 643 exec/s: 0 rss: 36Mb L: 216/643 MS: 1 EraseBytes-
+#432    REDUCE cov: 159 ft: 549 corp: 54/15334b lim: 643 exec/s: 0 rss: 36Mb L: 355/643 MS: 5 InsertRepeatedBytes-ChangeBit-CopyPart-ChangeBit-EraseBytes-
+#437    REDUCE cov: 159 ft: 549 corp: 54/15319b lim: 643 exec/s: 0 rss: 36Mb L: 102/643 MS: 5 CrossOver-ChangeByte-ChangeASCIIInt-ChangeBinInt-EraseBytes-
+
+=================================================================
+==317==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 64 byte(s) in 1 object(s) allocated from:
+    #0 0x5a532232adf3 in malloc (/work/build/fuzz_memory_structure+0x108df3) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #1 0x5a5322375def in cJSON_New_Item /work/third_party/cJSON/cJSON.c:243:27
+    #2 0x5a5322375def in cJSON_Duplicate_rec /work/third_party/cJSON/cJSON.c:2802:15
+    #3 0x5a532236943c in LLVMFuzzerTestOneInput /work/fuzz/fuzz_memory_structure.c:17:28
+    #4 0x5a5322276cc4 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/work/build/fuzz_memory_structure+0x54cc4) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #5 0x5a53222763b9 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool, bool*) (/work/build/fuzz_memory_structure+0x543b9) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #6 0x5a5322277ba5 in fuzzer::Fuzzer::MutateAndTestOne() (/work/build/fuzz_memory_structure+0x55ba5) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #7 0x5a5322278705 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile>>&) (/work/build/fuzz_memory_structure+0x56705) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #8 0x5a53222659df in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/work/build/fuzz_memory_structure+0x439df) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #9 0x5a5322290066 in main (/work/build/fuzz_memory_structure+0x6e066) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #10 0x7ef84fb6b1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #11 0x7ef84fb6b28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #12 0x5a532225a9c4 in _start (/work/build/fuzz_memory_structure+0x389c4) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+
+Indirect leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x5a532232adf3 in malloc (/work/build/fuzz_memory_structure+0x108df3) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #1 0x5a5322375f29 in cJSON_strdup /work/third_party/cJSON/cJSON.c:199:28
+    #2 0x5a5322375f29 in cJSON_Duplicate_rec /work/third_party/cJSON/cJSON.c:2813:39
+    #3 0x5a532236943c in LLVMFuzzerTestOneInput /work/fuzz/fuzz_memory_structure.c:17:28
+    #4 0x5a5322276cc4 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/work/build/fuzz_memory_structure+0x54cc4) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #5 0x5a53222763b9 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool, bool*) (/work/build/fuzz_memory_structure+0x543b9) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #6 0x5a5322277ba5 in fuzzer::Fuzzer::MutateAndTestOne() (/work/build/fuzz_memory_structure+0x55ba5) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #7 0x5a5322278705 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile>>&) (/work/build/fuzz_memory_structure+0x56705) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #8 0x5a53222659df in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/work/build/fuzz_memory_structure+0x439df) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #9 0x5a5322290066 in main (/work/build/fuzz_memory_structure+0x6e066) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+    #10 0x7ef84fb6b1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #11 0x7ef84fb6b28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: a4a7992a8e66555c8141ab2a08a8465ff6e0ea65)
+    #12 0x5a532225a9c4 in _start (/work/build/fuzz_memory_structure+0x389c4) (BuildId: a8b7b819cebfa59cccd33039e75218b18b98a929)
+
+SUMMARY: AddressSanitizer: 72 byte(s) leaked in 2 allocation(s).
+INFO: to ignore leaks on libFuzzer side use -detect_leaks=0.
+
+MS: 2 ChangeBit-ShuffleBytes-; base unit: 597994829d0cda47bbc05bff8724c5d4feff7c71
+0x22,0x20,0x7b,0x20,0x6e,0xa,0x65,0x76,0x22,0x3a,0x20,0x22,0x70,0x72,0x6f,0x64,0x75,0x63,0x74,0x69,0x6f,0x6e,0x22,0x2c,0xa,0x20,0x20,0x22,0x77,0x6f,0x72,0x6b,0x65,0x72,0x73,0x22,0x3a,0x20,0x38,0x2c,0xa,0x20,0x20,0x22,0x74,0x68,0x72,0x65,0x73,0x68,0x6f,0x6c,0x64,0x73,0x22,0x3a,0x20,0x5b,0x30,0x2e,0x31,0x2c,0x20,0x30,0x2e,0x35,0x2c,0x20,0x30,0x2e,0x39,0x35,0x2c,0x20,0x31,0x2e,0x30,0x5d,0x2c,0xa,0x20,0x20,0x22,0x72,0x6f,0x75,0x74,0x65,0x73,0x22,0x3a,0x20,0x5b,0xa,0x20,0x20,0x20,0x20,0x7b,0x22,0x70,0x61,0x74,0x68,0x22,0x3a,0x20,0x22,0x2f,0x31,0x69,0x2f,0x61,0x2f,0x76,0x70,0x70,0x61,0x72,0x73,0x65,0x22,0x2c,0x0,0x22,0x6d,0x65,0x74,0x68,0x6f,0x64,0x73,0x22,0x3a,0x20,0x5b,0x22,0x50,0x4f,0x53,0x54,0x22,0x5d,0x2c,0x20,0x22,0x74,0x69,0x6d,0x65,0x6f,0x75,0x74,0x5f,0x6d,0x73,0x22,0x3a,0x20,0x31,0x35,0x30,0x30,0x2c,0x20,0x22,0x63,0x61,0x63,0x68,0x65,0x22,0x3a,0x20,0x6e,0x75,0x6c,0x6c,0x7d,0x2c,0xa,0x20,0x20,0x20,0x20,0x7b,0x22,0x70,0x20,0x31,0x30,0x30,0x30,0x2c,0x20,0x22,0x6d,0x61,0x78,0x5f,0x62,0x79,0x74,0x65,0x73,0x22,0x3a,0x20,0x31,0x30,0x34,0x38,0x35,0x37,0x36,0x7d,0xa,0x20,0x20,0x7d,0xa,0x7d,0xa,
+\" { n\012ev\": \"production\",\012  \"workers\": 8,\012  \"thresholds\": [0.1, 0.5, 0.95, 1.0],\012  \"routes\": [\012    {\"path\": \"/1i/a/vpparse\",\000\"methods\": [\"POST\"], \"timeout_ms\": 1500, \"cache\": null},\012    {\"p 1000, \"max_bytes\": 1048576}\012  }\012}\012
+artifact_prefix='./'; Test unit written to ./leak-6ce7ce77406676d12f029540eb41ccce685678f9
+Base64: IiB7IG4KZXYiOiAicHJvZHVjdGlvbiIsCiAgIndvcmtlcnMiOiA4LAogICJ0aHJlc2hvbGRzIjogWzAuMSwgMC41LCAwLjk1LCAxLjBdLAogICJyb3V0ZXMiOiBbCiAgICB7InBhdGgiOiAiLzFpL2EvdnBwYXJzZSIsACJtZXRob2RzIjogWyJQT1NUIl0sICJ0aW1lb3V0X21zIjogMTUwMCwgImNhY2hlIjogbnVsbH0sCiAgICB7InAgMTAwMCwgIm1heF9ieXRlcyI6IDEwNDg1NzZ9CiAgfQp9Cg==
+stat::number_of_executed_units: 445
+stat::average_exec_per_sec:     0
+stat::new_units_added:          16
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              36
