@@ -1,0 +1,18 @@
+
+
+
+		/* leading tabs and newlines */
+		{
+			"k1"		:		[
+				10 ,
+				20 ,
+				30
+			] ,
+			// middle comment
+			"k2"		:		{
+				"nested" : "   spaces inside string   " ,
+				"empty"  : null
+			}
+		}
+
+

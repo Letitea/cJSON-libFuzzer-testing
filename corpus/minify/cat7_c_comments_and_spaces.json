@@ -1,0 +1,15 @@
+/* Header C-style multi-line comment
+ * Testing cJSON_Minify with spaces, tabs, and comments
+ */
+{
+	// C++ single-line comment before key
+	"name"   :   "cJSON" ,  /* inline block comment */
+	"version"	:	1.7 ,
+	"features" : [
+		"parse" , // trailing comment
+		"print" ,
+		"minify"  /* another inline comment */
+	] ,
+	"enabled" : true
+}
+// EOF comment without trailing newline

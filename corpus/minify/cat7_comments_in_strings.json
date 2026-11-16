@@ -1,0 +1,7 @@
+{
+	/* Real comment outside string */
+	"url" : "https://example.com/path//not_a_comment" ,
+	"block_like" : "/* keep this inside string */" ,
+	"escaped_quote_comment" : "abc \" // still inside string \" /* keep */" ,
+	"arr" : [   1 ,   2 ,   3   ] // end of line comment
+}
