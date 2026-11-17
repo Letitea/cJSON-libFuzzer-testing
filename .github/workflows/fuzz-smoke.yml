@@ -22,11 +22,22 @@ jobs:
           cmake --build build --parallel"
       - name: Run Core Smoke Tests (10s each)
         run: |
+          mkdir -p artifacts
           docker run --rm -v "${PWD}:/work" -w /work cjson-libfuzzer-testing bash -lc "
-          ./build/fuzz_parse -max_total_time=10 corpus/parse
-          ./build/fuzz_print -max_total_time=10 corpus/print
-          ./build/fuzz_minify -max_total_time=10 corpus/minify
-          ./build/fuzz_boundary -max_total_time=10 corpus/boundary
-          ./build/fuzz_reference -max_total_time=10 corpus/reference
-          ./build/fuzz_memory_structure -max_total_time=10 corpus/memory_structure
-          ./build/fuzz_hooks -max_total_time=10 corpus/hooks"
+          set -e
+          ./build/fuzz_parse -max_total_time=10 -artifact_prefix=artifacts/ corpus/parse
+          ./build/fuzz_print -max_total_time=10 -artifact_prefix=artifacts/ corpus/print
+          ./build/fuzz_minify -max_total_time=10 -artifact_prefix=artifacts/ corpus/minify
+          ./build/fuzz_boundary -max_total_time=10 -artifact_prefix=artifacts/ corpus/boundary
+          ./build/fuzz_reference -max_total_time=10 -artifact_prefix=artifacts/ corpus/reference
+          ./build/fuzz_memory_structure -max_total_time=10 -artifact_prefix=artifacts/ corpus/memory_structure
+          ./build/fuzz_hooks -max_total_time=10 -artifact_prefix=artifacts/ corpus/hooks"
+      - name: Upload Crash Artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fuzz-crash-artifacts
+          path: |
+            artifacts/*
+            !artifacts/.gitkeep
+          if-no-files-found: ignore

@@ -15,18 +15,20 @@ int LLVMFuzzerTestOneInput(const uint8_t *data, size_t size) {
 
     if (root) {
         cJSON *duplicate = cJSON_Duplicate(root, 1);
-        if (duplicate && duplicate->type == cJSON_Object) {
-            cJSON_AddItemToObject(duplicate, "fuzz_key_1", cJSON_CreateNumber(1));
-            
-            cJSON *child = duplicate->child;
-            if (child != NULL) {
-                cJSON *tail = child;
-                while (tail->next != NULL) tail = tail->next;
-                if (child->prev != tail) abort(); // 驗證鏈結串列一致性
+        if (duplicate) {
+            if (duplicate->type == cJSON_Object) {
+                cJSON_AddItemToObject(duplicate, "fuzz_key_1", cJSON_CreateNumber(1));
+                
+                cJSON *child = duplicate->child;
+                if (child != NULL) {
+                    cJSON *tail = child;
+                    while (tail->next != NULL) tail = tail->next;
+                    if (child->prev != tail) abort(); // 驗證鏈結串列一致性
+                }
+                
+                cJSON *detached = cJSON_DetachItemFromObject(duplicate, "fuzz_key_1");
+                if (detached) cJSON_Delete(detached);
             }
-            
-            cJSON *detached = cJSON_DetachItemFromObject(duplicate, "fuzz_key_1");
-            if (detached) cJSON_Delete(detached);
             cJSON_Delete(duplicate);
         }
         cJSON_Delete(root);
