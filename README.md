@@ -110,9 +110,9 @@ mkdir -p artifacts/out_parse
 
 ## CI 自動化測試
 
-[.github/workflows/fuzz-smoke.yml](.github/workflows/fuzz-smoke.yml) 會在以下時機觸發 Smoke Test（建置 Docker 映像、編譯並執行核心 fuzzer 各 10 秒）：
-- Push 至 `main` 分支
-- 發起或更新目標為 `main` 的 Pull Request
+[.github/workflows/fuzz-smoke.yml](.github/workflows/fuzz-smoke.yml) 會在以下時機觸發 Smoke Test（遞迴檢出 submodules、建置 Docker 映像、編譯並執行全部 7 個 fuzzer 各 10 秒，失敗時自動上傳 `artifacts/`）：
+- Push 至 `master` 分支
+- 發起或更新目標為 `master` 的 Pull Request
 - 於 GitHub Actions 頁面手動觸發（`workflow_dispatch`）
 
 ---
