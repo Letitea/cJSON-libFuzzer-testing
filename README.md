@@ -108,6 +108,66 @@ mkdir -p artifacts/out_parse
 
 ---
 
+## 覆蓋率報告（llvm-cov 視覺化 HTML）
+
+透過 Clang 的 `-fprofile-instr-generate -fcoverage-mapping` 與 `llvm-cov`，可在 Docker 容器內重播現有語料並產出 `cJSON.c` 的覆蓋率摘要與 HTML 視覺化報告，以便檢視未覆蓋的程式碼盲區。
+
+### 1. 編譯 Coverage 插樁版本（獨立建置於 `build-cov/`）
+```bash
+cmake -S . -B build-cov -DCMAKE_C_COMPILER=clang \
+  -DCMAKE_C_FLAGS="-fprofile-instr-generate -fcoverage-mapping" \
+  -DCMAKE_EXE_LINKER_FLAGS="-fprofile-instr-generate -fcoverage-mapping"
+
+cmake --build build-cov --parallel
+```
+
+### 2. 重播語料並收集 `.profraw`
+使用 `-runs=0` 只重播現有 `corpus/` 一次：
+```bash
+mkdir -p artifacts/cov
+
+LLVM_PROFILE_FILE="artifacts/cov/parse.profraw"            ./build-cov/fuzz_parse            -runs=0 corpus/parse
+LLVM_PROFILE_FILE="artifacts/cov/print.profraw"            ./build-cov/fuzz_print            -runs=0 corpus/print
+LLVM_PROFILE_FILE="artifacts/cov/minify.profraw"           ./build-cov/fuzz_minify           -runs=0 corpus/minify
+LLVM_PROFILE_FILE="artifacts/cov/boundary.profraw"         ./build-cov/fuzz_boundary         -runs=0 corpus/boundary
+LLVM_PROFILE_FILE="artifacts/cov/reference.profraw"        ./build-cov/fuzz_reference        -runs=0 corpus/reference
+LLVM_PROFILE_FILE="artifacts/cov/memory_structure.profraw" ./build-cov/fuzz_memory_structure -runs=0 corpus/memory_structure
+LLVM_PROFILE_FILE="artifacts/cov/hooks.profraw"            ./build-cov/fuzz_hooks            -runs=0 corpus/hooks
+```
+
+### 3. 合併覆蓋率並產出終端機摘要與 HTML 報告
+```bash
+llvm-profdata merge -sparse artifacts/cov/*.profraw -o artifacts/cov/merged.profdata
+
+# 終端機覆蓋率總表（Function / Line / Region / Branch）
+llvm-cov report ./build-cov/fuzz_parse \
+  -object=./build-cov/fuzz_print \
+  -object=./build-cov/fuzz_minify \
+  -object=./build-cov/fuzz_boundary \
+  -object=./build-cov/fuzz_reference \
+  -object=./build-cov/fuzz_memory_structure \
+  -object=./build-cov/fuzz_hooks \
+  -instr-profile=artifacts/cov/merged.profdata \
+  third_party/cJSON/cJSON.c
+
+# 產出視覺化 HTML 報告
+llvm-cov show ./build-cov/fuzz_parse \
+  -object=./build-cov/fuzz_print \
+  -object=./build-cov/fuzz_minify \
+  -object=./build-cov/fuzz_boundary \
+  -object=./build-cov/fuzz_reference \
+  -object=./build-cov/fuzz_memory_structure \
+  -object=./build-cov/fuzz_hooks \
+  -instr-profile=artifacts/cov/merged.profdata \
+  -format=html \
+  -output-dir=artifacts/cov/html \
+  third_party/cJSON/cJSON.c
+```
+
+完成後於本機開啟 `artifacts/cov/html/index.html`，點進 `cJSON.c` 即可檢視每行與每個分支的執行次數及未覆蓋的紅色區塊。
+
+---
+
 ## CI 自動化測試
 
 [.github/workflows/fuzz-smoke.yml](.github/workflows/fuzz-smoke.yml) 會在以下時機觸發 Smoke Test（遞迴檢出 submodules、建置 Docker 映像、編譯並執行全部 7 個 fuzzer 各 10 秒，失敗時自動上傳 `artifacts/`）：

@@ -1,0 +1,9 @@
+/work/build-cov/CMakeFiles/fuzz_parse.dir
+/work/build-cov/CMakeFiles/fuzz_print.dir
+/work/build-cov/CMakeFiles/fuzz_minify.dir
+/work/build-cov/CMakeFiles/fuzz_boundary.dir
+/work/build-cov/CMakeFiles/fuzz_reference.dir
+/work/build-cov/CMakeFiles/fuzz_memory_structure.dir
+/work/build-cov/CMakeFiles/fuzz_hooks.dir
+/work/build-cov/CMakeFiles/edit_cache.dir
+/work/build-cov/CMakeFiles/rebuild_cache.dir
