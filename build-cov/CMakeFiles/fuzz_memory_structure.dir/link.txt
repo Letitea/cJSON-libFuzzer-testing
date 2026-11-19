@@ -1,0 +1,1 @@
+/usr/bin/clang -fprofile-instr-generate -fcoverage-mapping -fprofile-instr-generate -fcoverage-mapping -fsanitize=fuzzer,address CMakeFiles/fuzz_memory_structure.dir/fuzz/fuzz_memory_structure.c.o CMakeFiles/fuzz_memory_structure.dir/third_party/cJSON/cJSON.c.o -o fuzz_memory_structure 

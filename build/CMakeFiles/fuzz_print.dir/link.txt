@@ -1,0 +1,1 @@
+/usr/bin/clang -g -fsanitize=fuzzer,address CMakeFiles/fuzz_print.dir/fuzz/fuzz_print.c.o CMakeFiles/fuzz_print.dir/third_party/cJSON/cJSON.c.o -o fuzz_print 

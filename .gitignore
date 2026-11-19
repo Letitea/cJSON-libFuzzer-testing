@@ -1,11 +1,7 @@
 .DS_Store
-build/
 *.o
 *.a
 *.exe
 crash-*
 oom-*
 timeout-*
-leak-*
-artifacts/*
-!artifacts/.gitkeep
