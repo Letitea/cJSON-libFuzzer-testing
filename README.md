@@ -2,7 +2,7 @@
 
 本專案使用 **LLVM libFuzzer** 與 **AddressSanitizer (ASan)** 對 `cJSON` (v1.7.19) 進行 in-process、覆蓋率導向的模糊測試（Coverage-Guided Fuzz Testing），重點在於發掘畸形輸入、邊界條件、記憶體配置失敗（OOM）與指標操作所引發的記憶體安全問題（如 Out-of-Bounds Read/Write、Use-After-Free、Double-Free 與 Memory Leak）。
 
-透過 10 個解耦的 Fuzz Targets，專案已涵蓋 `cJSON.c` **全部 78 個公開 API 與 35 個內部函式（Function Coverage 100.00%、Line Coverage 95.94%、Branch Coverage 91.65%）**，並在 OOM 錯誤注入測試中發掘了 `cJSON` v1.7.19 上游程式碼於 `cJSON_AddItemReferenceToObject()` 的真實記憶體洩漏缺陷。
+透過 10 個解耦的 Fuzz Targets，專案已涵蓋 `cJSON.c` **全部 78 個公開 API 與 35 個內部函式（Function Coverage 100.00%、Line Coverage 96.38%、Branch Coverage 92.13%）**，並在 OOM 錯誤注入測試中發掘了 `cJSON` v1.7.19 上游程式碼於 `cJSON_AddItemReferenceToObject()` 的真實記憶體洩漏缺陷。
 
 - **線上覆蓋率儀表板（GitHub Pages）**：https://letitea.github.io/cJSON-libFuzzer-testing/
 
@@ -145,9 +145,9 @@ bash scripts/run_coverage.sh
 | 指標 | 初版（7 Targets） | 擴充後（10 Targets） | 提升幅度 |
 | :--- | :---: | :---: | :---: |
 | **Function Coverage** | 45.13% (51 / 113) | **100.00% (113 / 113)** | +54.87% |
-| **Line Coverage** | 55.83% (1,279 / 2,291) | **95.94% (2,198 / 2,291)** | +40.11% |
-| **Region Coverage** | 59.38% (975 / 1,642) | **97.32% (1,598 / 1,642)** | +37.94% |
-| **Branch Coverage** | 55.31% (583 / 1,054) | **91.65% (966 / 1,054)** | +36.34% |
+| **Line Coverage** | 55.83% (1,279 / 2,291) | **96.38% (2,208 / 2,291)** | +40.55% |
+| **Region Coverage** | 59.38% (975 / 1,642) | **97.56% (1,602 / 1,642)** | +38.18% |
+| **Branch Coverage** | 55.31% (583 / 1,054) | **92.13% (971 / 1,054)** | +36.82% |
 
 ---
 

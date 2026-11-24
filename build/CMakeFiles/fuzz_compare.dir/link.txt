@@ -1,0 +1,1 @@
+/usr/bin/clang -g -fsanitize=fuzzer,address CMakeFiles/fuzz_compare.dir/fuzz/fuzz_compare.c.o CMakeFiles/fuzz_compare.dir/third_party/cJSON/cJSON.c.o -o fuzz_compare 

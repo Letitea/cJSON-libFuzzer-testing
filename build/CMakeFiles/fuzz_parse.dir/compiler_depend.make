@@ -9,6 +9,8 @@ CMakeFiles/fuzz_parse.dir/fuzz/fuzz_parse.c.o: /work/fuzz/fuzz_parse.c \
   /usr/include/stdc-predef.h \
   /usr/include/stdint.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
@@ -31,9 +33,11 @@ CMakeFiles/fuzz_parse.dir/fuzz/fuzz_parse.c.o: /work/fuzz/fuzz_parse.c \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
   /usr/include/x86_64-linux-gnu/bits/timesize.h \
   /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
@@ -173,25 +177,15 @@ CMakeFiles/fuzz_parse.dir/third_party/cJSON/cJSON.c.o: /work/third_party/cJSON/c
 
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
 
-/usr/include/strings.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/stdio.h:
-
 /usr/include/math.h:
 
-/usr/include/alloca.h:
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
+/usr/lib/llvm-18/lib/clang/18/share/asan_ignorelist.txt:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/lib/llvm-18/lib/clang/18/include/float.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
-
-/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-least.h:
 
@@ -199,31 +193,61 @@ CMakeFiles/fuzz_parse.dir/third_party/cJSON/cJSON.c.o: /work/third_party/cJSON/c
 
 /usr/lib/llvm-18/lib/clang/18/include/__stddef_wchar_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
-/usr/lib/llvm-18/lib/clang/18/include/stddef.h:
-
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
-/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+/work/third_party/cJSON/cJSON.c:
 
-/work/fuzz/fuzz_parse.c:
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+/usr/include/strings.h:
 
-/usr/include/endian.h:
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/ctype.h:
+
+/usr/lib/llvm-18/lib/clang/18/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+/work/fuzz/fuzz_parse.c:
+
+/usr/lib/llvm-18/lib/clang/18/include/float.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/usr/include/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+/usr/include/alloca.h:
+
+/usr/include/stdio.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
 /usr/include/stdlib.h:
 
+/usr/lib/llvm-18/lib/clang/18/include/stddef.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
-
-/usr/lib/llvm-18/lib/clang/18/share/asan_ignorelist.txt:
 
 /usr/lib/llvm-18/lib/clang/18/include/__stdarg___gnuc_va_list.h:
 
@@ -255,31 +279,15 @@ CMakeFiles/fuzz_parse.dir/third_party/cJSON/cJSON.c.o: /work/third_party/cJSON/c
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
+/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/features-time64.h:
 
 /usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 /usr/include/stdint.h:
 
-/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
-
-/usr/include/features-time64.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
-
-/usr/include/ctype.h:
-
-/usr/lib/llvm-18/lib/clang/18/include/stdint.h:
-
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
-
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
@@ -298,6 +306,16 @@ CMakeFiles/fuzz_parse.dir/third_party/cJSON/cJSON.c.o: /work/third_party/cJSON/c
 /usr/include/linux/limits.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
+/usr/lib/llvm-18/lib/clang/18/include/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h:
+
+/work/third_party/cJSON/cJSON.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
@@ -320,17 +338,3 @@ CMakeFiles/fuzz_parse.dir/third_party/cJSON/cJSON.c.o: /work/third_party/cJSON/c
 /usr/lib/llvm-18/lib/clang/18/include/__stddef_ptrdiff_t.h:
 
 /usr/lib/llvm-18/lib/clang/18/include/__stddef_size_t.h:
-
-/usr/lib/llvm-18/lib/clang/18/include/limits.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthread_stack_min.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-/work/third_party/cJSON/cJSON.h:
-
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-/work/third_party/cJSON/cJSON.c:
