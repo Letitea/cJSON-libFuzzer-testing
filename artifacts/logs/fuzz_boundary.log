@@ -1,0 +1,23 @@
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1186042757
+INFO: Loaded 1 modules   (1277 inline 8-bit counters): 1277 [0x58ca420151e8, 0x58ca420156e5), 
+INFO: Loaded 1 PC tables (1277 PCs): 1277 [0x58ca420156e8,0x58ca4201a6b8), 
+INFO:       27 files found in corpus/boundary
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 27 min: 1b max: 1271b total: 14065b rss: 32Mb
+#28	INITED cov: 225 ft: 226 corp: 2/1026b exec/s: 0 rss: 33Mb
+#262144	pulse  cov: 225 ft: 226 corp: 2/1026b lim: 3628 exec/s: 131072 rss: 435Mb
+#524288	pulse  cov: 225 ft: 226 corp: 2/1026b lim: 4096 exec/s: 131072 rss: 439Mb
+#1048576	pulse  cov: 225 ft: 226 corp: 2/1026b lim: 4096 exec/s: 149796 rss: 440Mb
+#2097152	pulse  cov: 225 ft: 226 corp: 2/1026b lim: 4096 exec/s: 149796 rss: 440Mb
+#4194304	pulse  cov: 225 ft: 226 corp: 2/1026b lim: 4096 exec/s: 155344 rss: 440Mb
+#8388608	pulse  cov: 225 ft: 226 corp: 2/1026b lim: 4096 exec/s: 152520 rss: 440Mb
+#16777216	pulse  cov: 225 ft: 226 corp: 2/1026b lim: 4096 exec/s: 149796 rss: 442Mb
+#33554432	pulse  cov: 225 ft: 226 corp: 2/1026b lim: 4096 exec/s: 145257 rss: 445Mb
+#43135723	DONE   cov: 225 ft: 226 corp: 2/1026b lim: 4096 exec/s: 143308 rss: 446Mb
+Done 43135723 runs in 301 second(s)
+stat::number_of_executed_units: 43135723
+stat::average_exec_per_sec:     143308
+stat::new_units_added:          0
+stat::slowest_unit_time_sec:    0
+stat::peak_rss_mb:              446
