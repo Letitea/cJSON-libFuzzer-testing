@@ -51,4 +51,7 @@ CMakeFiles/fuzz_reference.dir/fuzz/fuzz_reference.c.o: \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
-  /work/third_party/cJSON/cJSON.h
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h /work/third_party/cJSON/cJSON.h

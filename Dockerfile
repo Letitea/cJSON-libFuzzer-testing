@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
     clang llvm lld libclang-rt-dev cmake ninja-build git \
 
-    python3 python3-pip ca-certificates build-essential \
+    python3 python3-pip ca-certificates build-essential gdb \
 
     && rm -rf /var/lib/apt/lists/*
 

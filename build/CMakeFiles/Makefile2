@@ -70,6 +70,9 @@ all: CMakeFiles/fuzz_boundary.dir/all
 all: CMakeFiles/fuzz_reference.dir/all
 all: CMakeFiles/fuzz_memory_structure.dir/all
 all: CMakeFiles/fuzz_hooks.dir/all
+all: CMakeFiles/fuzz_create_and_types.dir/all
+all: CMakeFiles/fuzz_mutate.dir/all
+all: CMakeFiles/fuzz_compare.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -84,6 +87,9 @@ clean: CMakeFiles/fuzz_boundary.dir/clean
 clean: CMakeFiles/fuzz_reference.dir/clean
 clean: CMakeFiles/fuzz_memory_structure.dir/clean
 clean: CMakeFiles/fuzz_hooks.dir/clean
+clean: CMakeFiles/fuzz_create_and_types.dir/clean
+clean: CMakeFiles/fuzz_mutate.dir/clean
+clean: CMakeFiles/fuzz_compare.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -93,7 +99,7 @@ clean: CMakeFiles/fuzz_hooks.dir/clean
 CMakeFiles/fuzz_parse.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_parse.dir/build.make CMakeFiles/fuzz_parse.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_parse.dir/build.make CMakeFiles/fuzz_parse.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=13,14,15 "Built target fuzz_parse"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=22,23,24 "Built target fuzz_parse"
 .PHONY : CMakeFiles/fuzz_parse.dir/all
 
 # Build rule for subdir invocation for target.
@@ -119,7 +125,7 @@ CMakeFiles/fuzz_parse.dir/clean:
 CMakeFiles/fuzz_print.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_print.dir/build.make CMakeFiles/fuzz_print.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_print.dir/build.make CMakeFiles/fuzz_print.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=16,17,18 "Built target fuzz_print"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=25,26,27 "Built target fuzz_print"
 .PHONY : CMakeFiles/fuzz_print.dir/all
 
 # Build rule for subdir invocation for target.
@@ -145,7 +151,7 @@ CMakeFiles/fuzz_print.dir/clean:
 CMakeFiles/fuzz_minify.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_minify.dir/build.make CMakeFiles/fuzz_minify.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_minify.dir/build.make CMakeFiles/fuzz_minify.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=10,11,12 "Built target fuzz_minify"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=16,17,18 "Built target fuzz_minify"
 .PHONY : CMakeFiles/fuzz_minify.dir/all
 
 # Build rule for subdir invocation for target.
@@ -197,7 +203,7 @@ CMakeFiles/fuzz_boundary.dir/clean:
 CMakeFiles/fuzz_reference.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_reference.dir/build.make CMakeFiles/fuzz_reference.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_reference.dir/build.make CMakeFiles/fuzz_reference.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=19,20,21 "Built target fuzz_reference"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=28,29,30 "Built target fuzz_reference"
 .PHONY : CMakeFiles/fuzz_reference.dir/all
 
 # Build rule for subdir invocation for target.
@@ -223,7 +229,7 @@ CMakeFiles/fuzz_reference.dir/clean:
 CMakeFiles/fuzz_memory_structure.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_memory_structure.dir/build.make CMakeFiles/fuzz_memory_structure.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_memory_structure.dir/build.make CMakeFiles/fuzz_memory_structure.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=7,8,9 "Built target fuzz_memory_structure"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=13,14,15 "Built target fuzz_memory_structure"
 .PHONY : CMakeFiles/fuzz_memory_structure.dir/all
 
 # Build rule for subdir invocation for target.
@@ -249,7 +255,7 @@ CMakeFiles/fuzz_memory_structure.dir/clean:
 CMakeFiles/fuzz_hooks.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_hooks.dir/build.make CMakeFiles/fuzz_hooks.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_hooks.dir/build.make CMakeFiles/fuzz_hooks.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=4,5,6 "Built target fuzz_hooks"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=10,11,12 "Built target fuzz_hooks"
 .PHONY : CMakeFiles/fuzz_hooks.dir/all
 
 # Build rule for subdir invocation for target.
@@ -267,6 +273,84 @@ fuzz_hooks: CMakeFiles/fuzz_hooks.dir/rule
 CMakeFiles/fuzz_hooks.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_hooks.dir/build.make CMakeFiles/fuzz_hooks.dir/clean
 .PHONY : CMakeFiles/fuzz_hooks.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/fuzz_create_and_types.dir
+
+# All Build rule for target.
+CMakeFiles/fuzz_create_and_types.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_create_and_types.dir/build.make CMakeFiles/fuzz_create_and_types.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_create_and_types.dir/build.make CMakeFiles/fuzz_create_and_types.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=7,8,9 "Built target fuzz_create_and_types"
+.PHONY : CMakeFiles/fuzz_create_and_types.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/fuzz_create_and_types.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/fuzz_create_and_types.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/build/CMakeFiles 0
+.PHONY : CMakeFiles/fuzz_create_and_types.dir/rule
+
+# Convenience name for target.
+fuzz_create_and_types: CMakeFiles/fuzz_create_and_types.dir/rule
+.PHONY : fuzz_create_and_types
+
+# clean rule for target.
+CMakeFiles/fuzz_create_and_types.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_create_and_types.dir/build.make CMakeFiles/fuzz_create_and_types.dir/clean
+.PHONY : CMakeFiles/fuzz_create_and_types.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/fuzz_mutate.dir
+
+# All Build rule for target.
+CMakeFiles/fuzz_mutate.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_mutate.dir/build.make CMakeFiles/fuzz_mutate.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_mutate.dir/build.make CMakeFiles/fuzz_mutate.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=19,20,21 "Built target fuzz_mutate"
+.PHONY : CMakeFiles/fuzz_mutate.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/fuzz_mutate.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/fuzz_mutate.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/build/CMakeFiles 0
+.PHONY : CMakeFiles/fuzz_mutate.dir/rule
+
+# Convenience name for target.
+fuzz_mutate: CMakeFiles/fuzz_mutate.dir/rule
+.PHONY : fuzz_mutate
+
+# clean rule for target.
+CMakeFiles/fuzz_mutate.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_mutate.dir/build.make CMakeFiles/fuzz_mutate.dir/clean
+.PHONY : CMakeFiles/fuzz_mutate.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/fuzz_compare.dir
+
+# All Build rule for target.
+CMakeFiles/fuzz_compare.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_compare.dir/build.make CMakeFiles/fuzz_compare.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_compare.dir/build.make CMakeFiles/fuzz_compare.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/work/build/CMakeFiles --progress-num=4,5,6 "Built target fuzz_compare"
+.PHONY : CMakeFiles/fuzz_compare.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/fuzz_compare.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/fuzz_compare.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /work/build/CMakeFiles 0
+.PHONY : CMakeFiles/fuzz_compare.dir/rule
+
+# Convenience name for target.
+fuzz_compare: CMakeFiles/fuzz_compare.dir/rule
+.PHONY : fuzz_compare
+
+# clean rule for target.
+CMakeFiles/fuzz_compare.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_compare.dir/build.make CMakeFiles/fuzz_compare.dir/clean
+.PHONY : CMakeFiles/fuzz_compare.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

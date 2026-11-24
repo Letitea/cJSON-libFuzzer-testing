@@ -1,0 +1,43 @@
+root@d1f0371ce842:/work# ./build/fuzz_hooks -max_total_time=10 -artifact_prefix=artifacts/ corpus/hooks
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 488126579
+INFO: Loaded 1 modules   (1340 inline 8-bit counters): 1340 [0x5e84882bf1e8, 0x5e84882bf724), 
+INFO: Loaded 1 PC tables (1340 PCs): 1340 [0x5e84882bf728,0x5e84882c4ae8), 
+INFO:     2614 files found in corpus/hooks
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 4096 bytes
+INFO: seed corpus: files: 2614 min: 1b max: 1025b total: 167486b rss: 33Mb
+#2      pulse  ft: 2 exec/s: 1 rss: 33Mb
+#4      pulse  cov: 65 ft: 192 corp: 2/3b exec/s: 2 rss: 34Mb
+#8      pulse  cov: 244 ft: 383 corp: 6/11b exec/s: 4 rss: 35Mb
+#16     pulse  cov: 395 ft: 538 corp: 14/27b exec/s: 8 rss: 35Mb
+
+=================================================================
+==60752==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 64 byte(s) in 1 object(s) allocated from:
+    #0 0x5e8488227df3 in malloc (/work/build/fuzz_hooks+0x109df3) (BuildId: 763c821719f4afa051a8cb5153c16fed04bfbe85)
+    #1 0x5e848826d5a1 in cJSON_New_Item /work/third_party/cJSON/cJSON.c:243:27
+    #2 0x5e848826d5a1 in create_reference /work/third_party/cJSON/cJSON.c:2014:17
+    #3 0x5e848826d5a1 in cJSON_AddItemReferenceToObject /work/third_party/cJSON/cJSON.c:2147:47
+    #4 0x5e84882670b9 in LLVMFuzzerTestOneInput /work/fuzz/fuzz_hooks.c:194:23
+    #5 0x5e8488173cc4 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/work/build/fuzz_hooks+0x55cc4) (BuildId: 763c821719f4afa051a8cb5153c16fed04bfbe85)
+    #6 0x5e84881733b9 in fuzzer::Fuzzer::RunOne(unsigned char const*, unsigned long, bool, fuzzer::InputInfo*, bool, bool*) (/work/build/fuzz_hooks+0x553b9) (BuildId: 763c821719f4afa051a8cb5153c16fed04bfbe85)
+    #7 0x5e8488174fd6 in fuzzer::Fuzzer::ReadAndExecuteSeedCorpora(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile>>&) (/work/build/fuzz_hooks+0x56fd6) (BuildId: 763c821719f4afa051a8cb5153c16fed04bfbe85)
+    #8 0x5e84881754e7 in fuzzer::Fuzzer::Loop(std::vector<fuzzer::SizedFile, std::allocator<fuzzer::SizedFile>>&) (/work/build/fuzz_hooks+0x574e7) (BuildId: 763c821719f4afa051a8cb5153c16fed04bfbe85)
+    #9 0x5e84881629df in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/work/build/fuzz_hooks+0x449df) (BuildId: 763c821719f4afa051a8cb5153c16fed04bfbe85)
+    #10 0x5e848818d066 in main (/work/build/fuzz_hooks+0x6f066) (BuildId: 763c821719f4afa051a8cb5153c16fed04bfbe85)
+    #11 0x7f1cc0b7f1c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: 8cebda42d140fc2b09639f8b13a5d5f2e617ef09)
+    #12 0x7f1cc0b7f28a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: 8cebda42d140fc2b09639f8b13a5d5f2e617ef09)
+    #13 0x5e84881579c4 in _start (/work/build/fuzz_hooks+0x399c4) (BuildId: 763c821719f4afa051a8cb5153c16fed04bfbe85)
+
+SUMMARY: AddressSanitizer: 64 byte(s) leaked in 1 allocation(s).
+
+INFO: a leak has been found in the initial corpus.
+
+INFO: to ignore leaks on libFuzzer side use -detect_leaks=0.
+
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+0xa,0x31,
+\0121
+artifact_prefix='artifacts/'; Test unit written to artifacts/leak-70827644d3bf176f574b56f8075c83c187ab67c4
+Base64: CjE=
