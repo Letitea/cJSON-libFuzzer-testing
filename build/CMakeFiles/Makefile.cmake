@@ -49,4 +49,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/fuzz_reference.dir/DependInfo.cmake"
   "CMakeFiles/fuzz_memory_structure.dir/DependInfo.cmake"
   "CMakeFiles/fuzz_hooks.dir/DependInfo.cmake"
+  "CMakeFiles/fuzz_create_and_types.dir/DependInfo.cmake"
+  "CMakeFiles/fuzz_mutate.dir/DependInfo.cmake"
+  "CMakeFiles/fuzz_compare.dir/DependInfo.cmake"
   )

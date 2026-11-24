@@ -207,6 +207,45 @@ fuzz_hooks/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_hooks.dir/build.make CMakeFiles/fuzz_hooks.dir/build
 .PHONY : fuzz_hooks/fast
 
+#=============================================================================
+# Target rules for targets named fuzz_create_and_types
+
+# Build rule for target.
+fuzz_create_and_types: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fuzz_create_and_types
+.PHONY : fuzz_create_and_types
+
+# fast build rule for target.
+fuzz_create_and_types/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_create_and_types.dir/build.make CMakeFiles/fuzz_create_and_types.dir/build
+.PHONY : fuzz_create_and_types/fast
+
+#=============================================================================
+# Target rules for targets named fuzz_mutate
+
+# Build rule for target.
+fuzz_mutate: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fuzz_mutate
+.PHONY : fuzz_mutate
+
+# fast build rule for target.
+fuzz_mutate/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_mutate.dir/build.make CMakeFiles/fuzz_mutate.dir/build
+.PHONY : fuzz_mutate/fast
+
+#=============================================================================
+# Target rules for targets named fuzz_compare
+
+# Build rule for target.
+fuzz_compare: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fuzz_compare
+.PHONY : fuzz_compare
+
+# fast build rule for target.
+fuzz_compare/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_compare.dir/build.make CMakeFiles/fuzz_compare.dir/build
+.PHONY : fuzz_compare/fast
+
 fuzz/fuzz_boundary.o: fuzz/fuzz_boundary.c.o
 .PHONY : fuzz/fuzz_boundary.o
 
@@ -230,6 +269,54 @@ fuzz/fuzz_boundary.s: fuzz/fuzz_boundary.c.s
 fuzz/fuzz_boundary.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_boundary.dir/build.make CMakeFiles/fuzz_boundary.dir/fuzz/fuzz_boundary.c.s
 .PHONY : fuzz/fuzz_boundary.c.s
+
+fuzz/fuzz_compare.o: fuzz/fuzz_compare.c.o
+.PHONY : fuzz/fuzz_compare.o
+
+# target to build an object file
+fuzz/fuzz_compare.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_compare.dir/build.make CMakeFiles/fuzz_compare.dir/fuzz/fuzz_compare.c.o
+.PHONY : fuzz/fuzz_compare.c.o
+
+fuzz/fuzz_compare.i: fuzz/fuzz_compare.c.i
+.PHONY : fuzz/fuzz_compare.i
+
+# target to preprocess a source file
+fuzz/fuzz_compare.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_compare.dir/build.make CMakeFiles/fuzz_compare.dir/fuzz/fuzz_compare.c.i
+.PHONY : fuzz/fuzz_compare.c.i
+
+fuzz/fuzz_compare.s: fuzz/fuzz_compare.c.s
+.PHONY : fuzz/fuzz_compare.s
+
+# target to generate assembly for a file
+fuzz/fuzz_compare.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_compare.dir/build.make CMakeFiles/fuzz_compare.dir/fuzz/fuzz_compare.c.s
+.PHONY : fuzz/fuzz_compare.c.s
+
+fuzz/fuzz_create_and_types.o: fuzz/fuzz_create_and_types.c.o
+.PHONY : fuzz/fuzz_create_and_types.o
+
+# target to build an object file
+fuzz/fuzz_create_and_types.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_create_and_types.dir/build.make CMakeFiles/fuzz_create_and_types.dir/fuzz/fuzz_create_and_types.c.o
+.PHONY : fuzz/fuzz_create_and_types.c.o
+
+fuzz/fuzz_create_and_types.i: fuzz/fuzz_create_and_types.c.i
+.PHONY : fuzz/fuzz_create_and_types.i
+
+# target to preprocess a source file
+fuzz/fuzz_create_and_types.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_create_and_types.dir/build.make CMakeFiles/fuzz_create_and_types.dir/fuzz/fuzz_create_and_types.c.i
+.PHONY : fuzz/fuzz_create_and_types.c.i
+
+fuzz/fuzz_create_and_types.s: fuzz/fuzz_create_and_types.c.s
+.PHONY : fuzz/fuzz_create_and_types.s
+
+# target to generate assembly for a file
+fuzz/fuzz_create_and_types.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_create_and_types.dir/build.make CMakeFiles/fuzz_create_and_types.dir/fuzz/fuzz_create_and_types.c.s
+.PHONY : fuzz/fuzz_create_and_types.c.s
 
 fuzz/fuzz_hooks.o: fuzz/fuzz_hooks.c.o
 .PHONY : fuzz/fuzz_hooks.o
@@ -302,6 +389,30 @@ fuzz/fuzz_minify.s: fuzz/fuzz_minify.c.s
 fuzz/fuzz_minify.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_minify.dir/build.make CMakeFiles/fuzz_minify.dir/fuzz/fuzz_minify.c.s
 .PHONY : fuzz/fuzz_minify.c.s
+
+fuzz/fuzz_mutate.o: fuzz/fuzz_mutate.c.o
+.PHONY : fuzz/fuzz_mutate.o
+
+# target to build an object file
+fuzz/fuzz_mutate.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_mutate.dir/build.make CMakeFiles/fuzz_mutate.dir/fuzz/fuzz_mutate.c.o
+.PHONY : fuzz/fuzz_mutate.c.o
+
+fuzz/fuzz_mutate.i: fuzz/fuzz_mutate.c.i
+.PHONY : fuzz/fuzz_mutate.i
+
+# target to preprocess a source file
+fuzz/fuzz_mutate.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_mutate.dir/build.make CMakeFiles/fuzz_mutate.dir/fuzz/fuzz_mutate.c.i
+.PHONY : fuzz/fuzz_mutate.c.i
+
+fuzz/fuzz_mutate.s: fuzz/fuzz_mutate.c.s
+.PHONY : fuzz/fuzz_mutate.s
+
+# target to generate assembly for a file
+fuzz/fuzz_mutate.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_mutate.dir/build.make CMakeFiles/fuzz_mutate.dir/fuzz/fuzz_mutate.c.s
+.PHONY : fuzz/fuzz_mutate.c.s
 
 fuzz/fuzz_parse.o: fuzz/fuzz_parse.c.o
 .PHONY : fuzz/fuzz_parse.o
@@ -387,6 +498,9 @@ third_party/cJSON/cJSON.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_reference.dir/build.make CMakeFiles/fuzz_reference.dir/third_party/cJSON/cJSON.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_memory_structure.dir/build.make CMakeFiles/fuzz_memory_structure.dir/third_party/cJSON/cJSON.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_hooks.dir/build.make CMakeFiles/fuzz_hooks.dir/third_party/cJSON/cJSON.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_create_and_types.dir/build.make CMakeFiles/fuzz_create_and_types.dir/third_party/cJSON/cJSON.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_mutate.dir/build.make CMakeFiles/fuzz_mutate.dir/third_party/cJSON/cJSON.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_compare.dir/build.make CMakeFiles/fuzz_compare.dir/third_party/cJSON/cJSON.c.o
 .PHONY : third_party/cJSON/cJSON.c.o
 
 third_party/cJSON/cJSON.i: third_party/cJSON/cJSON.c.i
@@ -401,6 +515,9 @@ third_party/cJSON/cJSON.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_reference.dir/build.make CMakeFiles/fuzz_reference.dir/third_party/cJSON/cJSON.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_memory_structure.dir/build.make CMakeFiles/fuzz_memory_structure.dir/third_party/cJSON/cJSON.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_hooks.dir/build.make CMakeFiles/fuzz_hooks.dir/third_party/cJSON/cJSON.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_create_and_types.dir/build.make CMakeFiles/fuzz_create_and_types.dir/third_party/cJSON/cJSON.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_mutate.dir/build.make CMakeFiles/fuzz_mutate.dir/third_party/cJSON/cJSON.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_compare.dir/build.make CMakeFiles/fuzz_compare.dir/third_party/cJSON/cJSON.c.i
 .PHONY : third_party/cJSON/cJSON.c.i
 
 third_party/cJSON/cJSON.s: third_party/cJSON/cJSON.c.s
@@ -415,6 +532,9 @@ third_party/cJSON/cJSON.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_reference.dir/build.make CMakeFiles/fuzz_reference.dir/third_party/cJSON/cJSON.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_memory_structure.dir/build.make CMakeFiles/fuzz_memory_structure.dir/third_party/cJSON/cJSON.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_hooks.dir/build.make CMakeFiles/fuzz_hooks.dir/third_party/cJSON/cJSON.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_create_and_types.dir/build.make CMakeFiles/fuzz_create_and_types.dir/third_party/cJSON/cJSON.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_mutate.dir/build.make CMakeFiles/fuzz_mutate.dir/third_party/cJSON/cJSON.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fuzz_compare.dir/build.make CMakeFiles/fuzz_compare.dir/third_party/cJSON/cJSON.c.s
 .PHONY : third_party/cJSON/cJSON.c.s
 
 # Help Target
@@ -426,15 +546,24 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... fuzz_boundary"
+	@echo "... fuzz_compare"
+	@echo "... fuzz_create_and_types"
 	@echo "... fuzz_hooks"
 	@echo "... fuzz_memory_structure"
 	@echo "... fuzz_minify"
+	@echo "... fuzz_mutate"
 	@echo "... fuzz_parse"
 	@echo "... fuzz_print"
 	@echo "... fuzz_reference"
 	@echo "... fuzz/fuzz_boundary.o"
 	@echo "... fuzz/fuzz_boundary.i"
 	@echo "... fuzz/fuzz_boundary.s"
+	@echo "... fuzz/fuzz_compare.o"
+	@echo "... fuzz/fuzz_compare.i"
+	@echo "... fuzz/fuzz_compare.s"
+	@echo "... fuzz/fuzz_create_and_types.o"
+	@echo "... fuzz/fuzz_create_and_types.i"
+	@echo "... fuzz/fuzz_create_and_types.s"
 	@echo "... fuzz/fuzz_hooks.o"
 	@echo "... fuzz/fuzz_hooks.i"
 	@echo "... fuzz/fuzz_hooks.s"
@@ -444,6 +573,9 @@ help:
 	@echo "... fuzz/fuzz_minify.o"
 	@echo "... fuzz/fuzz_minify.i"
 	@echo "... fuzz/fuzz_minify.s"
+	@echo "... fuzz/fuzz_mutate.o"
+	@echo "... fuzz/fuzz_mutate.i"
+	@echo "... fuzz/fuzz_mutate.s"
 	@echo "... fuzz/fuzz_parse.o"
 	@echo "... fuzz/fuzz_parse.i"
 	@echo "... fuzz/fuzz_parse.s"

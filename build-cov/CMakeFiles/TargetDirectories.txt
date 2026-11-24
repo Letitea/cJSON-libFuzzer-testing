@@ -5,5 +5,8 @@
 /work/build-cov/CMakeFiles/fuzz_reference.dir
 /work/build-cov/CMakeFiles/fuzz_memory_structure.dir
 /work/build-cov/CMakeFiles/fuzz_hooks.dir
+/work/build-cov/CMakeFiles/fuzz_create_and_types.dir
+/work/build-cov/CMakeFiles/fuzz_mutate.dir
+/work/build-cov/CMakeFiles/fuzz_compare.dir
 /work/build-cov/CMakeFiles/edit_cache.dir
 /work/build-cov/CMakeFiles/rebuild_cache.dir
